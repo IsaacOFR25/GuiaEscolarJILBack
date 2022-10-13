@@ -6,22 +6,77 @@ var coordenadas = [];
 
 //Raiz
 router.get("/", (req, res) => {
-  res.end(led);
+  //Envia json infoPuntos.json como respuesta
+  const infoPuntos = require("./../../infoPuntos.json");
+  res.json(infoPuntos);
 });
 
-//Encender
-router.get("/on", (req, res) => {
-  led = "1";
+//Get devuelve el estado de la tarjeta "Tarjeta N" que esta en el achivo infoPuntos.json
+router.get("/Tarjeta/:id", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
-
-  res.end(led);
+  const { id } = req.params;
+  //Recuperar el archivo infoPuntos.json
+  const infoPuntos = require("./../../infoPuntos.json");
+  //Recuperar de el listado de tarjetas el objeto que tenga el id que se envio
+  const tarjeta = infoPuntos.tarjetas.find((tarjeta) => tarjeta.id == id);
+  //Retornar el estado de la tarjeta
+  res.end(tarjeta.propiedades.estado);
 });
 
-//Apagar
-router.get("/off", (req, res) => {
-  led = "0";
+//Post cambia el estado de la tarjeta "Tarjeta N" que esta en el achivo infoPuntos.json
+router.get("/Tarjeta/:id/on", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.end(led);
+  const { id } = req.params;
+  //Recuperar el archivo infoPuntos.json
+  const infoPuntos = require("./../../infoPuntos.json");
+  //Recuperar de el listado de tarjetas el objeto que tenga el id que se envio
+  const tarjeta = infoPuntos.tarjetas.find((tarjeta) => tarjeta.id == id);
+  //Cambiar el estado de la tarjeta
+  tarjeta.propiedades.estado = "1";
+  //Guardar el archivo infoPuntos.json
+  const fs = require("fs");
+  fs.writeFile(
+    "./../../infoPuntos.json",
+    JSON.stringify(infoPuntos),
+    "utf8",
+    function (err) {
+      if (err) {
+        console.log("An error occured while writing JSON Object to File.");
+        return console.log(err);
+      }
+      console.log("JSON file has been saved.");
+    }
+  );
+  //Retornar el estado de la tarjeta
+  res.end(tarjeta.propiedades.estado);
+});
+
+//Post cambia el estado de la tarjeta "Tarjeta N" que esta en el achivo infoPuntos.json
+router.get("/Tarjeta/:id/off", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  const { id } = req.params;
+  //Recuperar el archivo infoPuntos.json
+  const infoPuntos = require("./../../infoPuntos.json");
+  //Recuperar de el listado de tarjetas el objeto que tenga el id que se envio
+  const tarjeta = infoPuntos.tarjetas.find((tarjeta) => tarjeta.id == id);
+  //Cambiar el estado de la tarjeta
+  tarjeta.propiedades.estado = "0";
+  //Guardar el archivo infoPuntos.json
+  const fs = require("fs");
+  fs.writeFile(
+    "./../../infoPuntos.json",
+    JSON.stringify(infoPuntos),
+    "utf8",
+    function (err) {
+      if (err) {
+        console.log("An error occured while writing JSON Object to File.");
+        return console.log(err);
+      }
+      console.log("JSON file has been saved.");
+    }
+  );
+  //Retornar el estado de la tarjeta
+  res.end(tarjeta.propiedades.estado);
 });
 
 //Recibe coordenadas

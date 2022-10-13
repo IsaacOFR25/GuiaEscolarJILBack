@@ -1,0 +1,43 @@
+{
+  "tarjetas": [
+    {
+      "id": "1",
+      "propiedades": {
+        "nombre": "Tarjeta 1",
+        "modelo": "ESP32",
+        "descripcion": "Descripcion de la tarjeta 1, en que lugar se encuentra ubicada.",
+        "fecha": "2019-01-01",
+        "estado": "0",
+        "latitud": 0,
+        "longitud": 0,
+        "codigo": "enlace a codigo a flashear"
+      }
+    },
+    {
+      "id": "2",
+      "propiedades": {
+        "nombre": "Tarjeta 2",
+        "modelo": "ESP32",
+        "descripcion": "Descripcion de la tarjeta 2, en que lugar se encuentra ubicada.",
+        "fecha": "2019-01-01",
+        "estado": "0",
+        "latitud": 0,
+        "longitud": 0,
+        "codigo": "enlace a codigo a flashear"
+      }
+    },
+    {
+      "id": "3",
+      "propiedades": {
+        "nombre": "Tarjeta 3",
+        "modelo": "NodeMCU",
+        "descripcion": "Descripcion de la tarjeta 3, en que lugar se encuentra ubicada.",
+        "fecha": "2019-01-01",
+        "estado": "0",
+        "latitud": 0,
+        "longitud": 0,
+        "codigo": "enlace a codigo a flashear"
+      }
+    }
+  ]
+}
