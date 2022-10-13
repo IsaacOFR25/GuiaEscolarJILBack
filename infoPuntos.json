@@ -5,11 +5,14 @@
       "propiedades": {
         "nombre": "Tarjeta 1",
         "modelo": "ESP32",
-        "descripcion": "Descripcion de la tarjeta 1, en que lugar se encuentra ubicada.",
+        "descripcion": "Tarjeta de prueba 1, con ESP32",
         "fecha": "2019-01-01",
         "estado": "0",
-        "latitud": 0,
-        "longitud": 0,
+        "ubicacion": {
+          "latitud": "0.0",
+          "longitud": "0.0",
+          "descripcion": "Entrada ITESA"
+        },
         "codigo": "enlace a codigo a flashear"
       }
     },
@@ -18,11 +21,14 @@
       "propiedades": {
         "nombre": "Tarjeta 2",
         "modelo": "ESP32",
-        "descripcion": "Descripcion de la tarjeta 2, en que lugar se encuentra ubicada.",
+        "descripcion": "Tarjeta de prueba 1, con ESP32",
         "fecha": "2019-01-01",
         "estado": "0",
-        "latitud": 0,
-        "longitud": 0,
+        "ubicacion": {
+          "latitud": "0.0",
+          "longitud": "0.0",
+          "descripcion": "Entrada ITESA"
+        },
         "codigo": "enlace a codigo a flashear"
       }
     },
@@ -31,12 +37,37 @@
       "propiedades": {
         "nombre": "Tarjeta 3",
         "modelo": "NodeMCU",
-        "descripcion": "Descripcion de la tarjeta 3, en que lugar se encuentra ubicada.",
+        "descripcion": "Tarjeta de prueba 1, con NodeMCU",
         "fecha": "2019-01-01",
         "estado": "0",
-        "latitud": 0,
-        "longitud": 0,
+        "ubicacion": {
+          "latitud": "0.0",
+          "longitud": "0.0",
+          "descripcion": "Entrada ITESA"
+        },
         "codigo": "enlace a codigo a flashear"
+      }
+    }
+  ],
+  "rutas": [
+    {
+      "id": "1",
+      "propiedades": {
+        "nombre": "Ruta 1",
+        "descripcion": "Descripcion de la ruta 1, Punto 1 en entrada, punto 2 en salida etc.",
+        "fecha": "2019-01-01",
+        "numero-puntos": "3",
+        "lista-puntos": [
+          {
+            "id-tarjeta": "1"
+          },
+          {
+            "id-tarjeta": "2"
+          },
+          {
+            "id-tarjeta": "3"
+          }
+        ]
       }
     }
   ]

@@ -13,7 +13,6 @@ router.get("/", (req, res) => {
 
 //Get devuelve el estado de la tarjeta "Tarjeta N" que esta en el achivo infoPuntos.json
 router.get("/Tarjeta/:id", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
   //Recuperar el archivo infoPuntos.json
   const infoPuntos = require("./../../infoPuntos.json");
@@ -25,7 +24,6 @@ router.get("/Tarjeta/:id", (req, res) => {
 
 //Post cambia el estado de la tarjeta "Tarjeta N" que esta en el achivo infoPuntos.json
 router.get("/Tarjeta/:id/on", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
   //Recuperar el archivo infoPuntos.json
   const infoPuntos = require("./../../infoPuntos.json");
@@ -53,7 +51,6 @@ router.get("/Tarjeta/:id/on", (req, res) => {
 
 //Post cambia el estado de la tarjeta "Tarjeta N" que esta en el achivo infoPuntos.json
 router.get("/Tarjeta/:id/off", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
   //Recuperar el archivo infoPuntos.json
   const infoPuntos = require("./../../infoPuntos.json");

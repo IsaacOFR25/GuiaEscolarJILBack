@@ -3,7 +3,7 @@ const app = express();
 const morgan = require("morgan");
 
 //Configuraciones
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3001);
 app.set("json spaces", 2);
 
 //Middleware
@@ -11,8 +11,26 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// Configurar cabeceras y cors
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
+
 //Routes
+
+//Para las tarjetas
 app.use(require("./routes/index"));
+
+//Para las rutas y los puntos
+app.use("/admin/rutas", require("./routes/administador/rutas"));
+app.use("/admin/tarjetas", require("./routes/administador/tarjetas"));
 
 //Iniciando el servidor
 app.listen(app.get("port"), () => {
