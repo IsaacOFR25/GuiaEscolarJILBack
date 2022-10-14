@@ -32,6 +32,9 @@ app.use(require("./routes/index"));
 app.use("/admin/rutas", require("./routes/administador/rutas"));
 app.use("/admin/tarjetas", require("./routes/administador/tarjetas"));
 
+//Para el generador de QR
+app.use("/generadorQR", require("./routes/administador/generadorQR"));
+
 //Iniciando el servidor
 app.listen(app.get("port"), () => {
   console.log(`Server listening on port ${app.get("port")}`);
