@@ -35,6 +35,9 @@ app.use("/admin/tarjetas", require("./routes/administador/tarjetas"));
 //Para el generador de QR
 app.use("/generadorQR", require("./routes/administador/generadorQR"));
 
+//Para el renderizado de la AR
+app.use("/ar/renderizado", require("./routes/ar/renderizado"));
+
 //Iniciando el servidor
 app.listen(app.get("port"), () => {
   console.log(`Server listening on port ${app.get("port")}`);
