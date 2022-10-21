@@ -63,6 +63,9 @@
         gesture-handler></a-image>
 
       <script>
+
+        //var url = "http://localhost:3000";
+        var url = "https://guia-escolar.herokuapp.com";
         var m = document.querySelector("a-marker")
         m.addEventListener("markerFound", (e) => {
           console.log("found")
@@ -77,7 +80,13 @@
         })
         document.getElementById("btn2").addEventListener("click", (e) => {
           //al dar clic lo enviara al siguiente enlace: https://guia-escolar.herokuapp.com/guia.js
-          window.location.href = "https://guia-escolar.herokuapp.com/guia.js";
+          //Obtiene los valores de la url actual id= y pc=valor+1, para enviarlos al siguiente enlace
+          // TODO recupera el valor de la url actual 
+          var url = new URL(window.location.href);
+          var id = url.searchParams.get("id");
+          var pc = url.searchParams.get("pc");
+          // TODO envia los valores a la url siguiente
+          window.location.href = url + "/guia?id=" + id + "&pc=" + pc;
         })
       </script>
     </a-marker>

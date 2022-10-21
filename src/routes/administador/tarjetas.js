@@ -61,4 +61,25 @@ router.delete("/eliminar/:id", (req, res) => {
   res.sendStatus(200);
 });
 
+//Metodo para obtener un solo producto mediante su id
+router.get("/:id", (req, res) => {
+  //Responde con un json que muestre una tarjeta de nuetro archivo "infoPuntos.json"
+  const infoPuntos = require("./../../../infoPuntos.json");
+  //Obtiene el id de la tarjeta a buscar
+  const id = req.params.id;
+  //Filtrar en el arreglo de tarjetas la tarjeta con ese id
+  const tarjeta = infoPuntos.tarjetas.filter((tarjeta) => {
+    return tarjeta.id === id;
+  });
+  //Si la tarjeta existe
+  if (tarjeta.length > 0) {
+    //Enviar esa tarjeta como respuesta
+    res.json(tarjeta[0]);
+  } else {
+    //Si la tarjeta no existe
+    //Envia un codigo de error 404
+    res.status(404).send("Tarjeta no encontrada");
+  }
+});
+
 module.exports = router;

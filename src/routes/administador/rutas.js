@@ -59,4 +59,22 @@ router.delete("/eliminar/:id", (req, res) => {
   res.sendStatus(200);
 });
 
+//Metodo para obtener una ruta especifica
+router.get("/:id", (req, res) => {
+  //Obtiene el id de la ruta a obtener
+  const id = req.params.id;
+  //Obtiene el archivo infoPuntos.json
+  const infoPuntos = require("./../../../infoPuntos.json");
+  //Filtra el arreglo de rutas para obtener la ruta con el id recibido
+  const ruta = infoPuntos.rutas.filter((ruta) => {
+    return ruta.id === id;
+  });
+  //Si la ruta existe, la envia como respuesta, de lo contrario envia un codigo 404
+  if (ruta.length > 0) {
+    res.json(ruta[0]);
+  } else {
+    res.sendStatus(404);
+  }
+});
+
 module.exports = router;

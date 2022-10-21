@@ -19,6 +19,7 @@ router.get("/Tarjeta/:id", (req, res) => {
   //Recuperar de el listado de tarjetas el objeto que tenga el id que se envio
   const tarjeta = infoPuntos.tarjetas.find((tarjeta) => tarjeta.id == id);
   //Retornar el estado de la tarjeta
+  console.log(tarjeta.propiedades.estado);
   res.end(tarjeta.propiedades.estado);
 });
 
@@ -45,6 +46,24 @@ router.get("/Tarjeta/:id/on", (req, res) => {
       console.log("JSON file has been saved.");
     }
   );
+  //Apagar de forma asincrona el led de la tarjeta
+  setTimeout(function () {
+    tarjeta.propiedades.estado = "0";
+    //Guardar el archivo infoPuntos.json
+    const fs = require("fs");
+    fs.writeFile(
+      "./../../infoPuntos.json",
+      JSON.stringify(infoPuntos),
+      "utf8",
+      function (err) {
+        if (err) {
+          console.log("An error occured while writing JSON Object to File.");
+          return console.log(err);
+        }
+        console.log("JSON file has been saved.");
+      }
+    );
+  }, 5000);
   //Retornar el estado de la tarjeta
   res.end(tarjeta.propiedades.estado);
 });
