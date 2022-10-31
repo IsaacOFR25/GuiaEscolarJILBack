@@ -63,7 +63,7 @@ router.get("/Tarjeta/:id/on", (req, res) => {
         console.log("JSON file has been saved.");
       }
     );
-  }, 5000);
+  }, 15000);
   //Retornar el estado de la tarjeta
   res.end(tarjeta.propiedades.estado);
 });
