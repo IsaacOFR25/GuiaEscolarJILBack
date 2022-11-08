@@ -1,9 +1,6 @@
 const { Router } = require("express");
 const router = Router();
 
-var led = "0";
-var coordenadas = [];
-
 //Raiz
 router.get("/", (req, res) => {
   //Envia json infoPuntos.json como respuesta
@@ -18,6 +15,22 @@ router.get("/Tarjeta/:id", (req, res) => {
   const infoPuntos = require("./../../infoPuntos.json");
   //Recuperar de el listado de tarjetas el objeto que tenga el id que se envio
   const tarjeta = infoPuntos.tarjetas.find((tarjeta) => tarjeta.id == id);
+  //Escribir en json ultima fecha de consulta
+  tarjeta.ultimaConsulta = new Date();
+  //Guardar el json con la ultima consulta
+  const fs = require("fs");
+  fs.writeFile(
+    "./../../infoPuntos.json",
+    JSON.stringify(infoPuntos),
+    "utf8",
+    function (err) {
+      if (err) {
+        console.log("An error occured while writing JSON Object to File.");
+        return console.log(err);
+      }
+      console.log("JSON file has been saved.");
+    }
+  );
   //Retornar el estado de la tarjeta
   console.log(tarjeta.propiedades.estado);
   res.end(tarjeta.propiedades.estado);
@@ -95,17 +108,12 @@ router.get("/Tarjeta/:id/off", (req, res) => {
   res.end(tarjeta.propiedades.estado);
 });
 
-//Recibe coordenadas
-router.post("/coordenadas", (req, res) => {
-  //Guarda las coordenadas que recibe en post (lat y lon) en un arreglo
-  coordenadas.push(req.body.lat);
-  coordenadas.push(req.body.lon);
-  res.header("Access-Control-Allow-Origin", "*");
-  //regresa el mensaje de que se recibieron las coordenadas y la hora
-  res.end(
-    "Recibido: " + coordenadas[coordenadas.length - 1] + " " + new Date()
-  );
-  console.log(coordenadas);
-});
+router.get("/estado", (req,res) =>{
+  const infoPuntos = require("./../../infoPuntos.json");
+  //Obtener de todas las tarjetas registradas la ultima fecha de consulta y enviarlas como respuesta
+  //"Tarjeta N": (ultima consulta)
+  res.json(infoPuntos.tarjetas.map(tarjeta => `${tarjeta.id}: (${tarjeta.ultimaConsulta})`));
+}); 
+
 
 module.exports = router;
