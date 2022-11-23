@@ -31,6 +31,7 @@ app.use(require("./routes/index"));
 //Para las rutas y los puntos
 app.use("/admin/rutas", require("./routes/administador/rutas"));
 app.use("/admin/tarjetas", require("./routes/administador/tarjetas"));
+app.use("/mostrarRutas", require("./routes/mostrarRutas/mostrarRutas"));
 
 //Para el generador de QR
 app.use("/generadorQR", require("./routes/administador/generadorQR"));
