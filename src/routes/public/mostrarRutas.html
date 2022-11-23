@@ -18,15 +18,8 @@
 </head>
 
 <body>
-  <div className="header" style="padding: 0 20px;
-          width:90vw;
-          display: flex;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-          align-items: center;
-          background-color: #00B399;
-          color: #fff;
-        ">
+  <div className="header"
+    style="padding: 0 20px;width:90vw;display: flex;flex-wrap: nowrap;justify-content: space-between;align-items: center;background-color: #00B399;color: #fff;">
     <a href="https://guia-escolar.herokuapp.com/gestorRutasTarjetas">
       <!-- icono de regresar -->
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
@@ -36,7 +29,6 @@
     </a>
     <h3>Visor de rutas</h3>
     <div style="width: 30px; height: 40px; padding: 0 0 0 10px"></div>
-
   </div>
   <div style="display: flex; flex-direction:column">
     <h1>Rutas disponibles</h1>
@@ -45,19 +37,14 @@
     </section>
   </div>
 
-  <!-- Importar ultima version de Jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script>
     const api = "https://api-guia-escolar.herokuapp.com/";
-    //const api = "http://localhost:3001/";
-
-    // Consultar api https://api-guia-escolar.herokuapp.com/Admin/Rutas get. El servidor responde con archivo json
     $.ajax({
       url: 'https://api-guia-escolar.herokuapp.com/Admin/Rutas',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
-        //si no hay respuesta mostrar que no existen rutas
         if (data.length == 0) {
           $("#rutas").append("<h2>No hay rutas disponibles</h2>");
         } else {
