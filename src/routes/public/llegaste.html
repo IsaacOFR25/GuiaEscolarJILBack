@@ -37,8 +37,7 @@
 <body style="margin: 0; overflow: hidden;" id="cuerpo">
   <div style='position: fixed; left: 10px; width:100vw; text-align: center; z-index: 1;'>
     <button class="button btn" id="btn1"><i class="fas fa-arrow-left"></i> Regresar</button>
-    <button class="button btn" id="btn2" style="display:none ;">Siguiente Punto<i
-        class="fas fa-arrow-right"></i></button>
+    <button class="button btn" id="btn2" style="display:none ;">Terminar<i class="fas fa-arrow-right"></i></button>
   </div>
 
   <div
@@ -81,7 +80,7 @@
           var id = url.searchParams.get("id");
           var pc = url.searchParams.get("pc");
           // TODO envia los valores a la url siguiente
-          window.location.href = urlHost + "/guia?id=" + id + "&pc=" + pc;
+          window.location.href = "https://guia-escolar.herokuapp.com/llegaste";
         })
       </script>
     </a-marker>
