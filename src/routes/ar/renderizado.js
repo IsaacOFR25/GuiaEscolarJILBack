@@ -9,6 +9,12 @@ router.get("/IZQ", (req, res) => {
 router.get("/DER", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/derecha.html"));
 });
+router.get("/REC", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/frente.html"));
+});
+router.get("/FIN", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/llegaste.html"));
+});
 router.get("/assets/:file", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/assets/" + req.params.file));
 });
