@@ -59,8 +59,8 @@
 
       <script>
 
-        //var url = "http://localhost:3000";
-        var urlHost = "https://guia-escolar-drago-do.vercel.app";
+        var urlHost = "http://localhost:3000";
+        //var urlHost = "https://guia-escolar-drago-do.vercel.app";
         var m = document.querySelector("a-marker")
         m.addEventListener("markerFound", (e) => {
           console.log("found")
@@ -81,7 +81,7 @@
           var id = url.searchParams.get("id");
           var pc = url.searchParams.get("pc");
           // TODO envia los valores a la url siguiente
-          window.location.href = urlHost + "/guia?id=" + id + "&pc=" + pc;
+          window.location.href = urlHost + "/guia? id=" + id + "&pc=" + pc;
         })
       </script>
     </a-marker>

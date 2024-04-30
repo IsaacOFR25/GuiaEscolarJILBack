@@ -65,7 +65,24 @@
         },
         "codigo": "TODO agregar codigo cpp"
       },
-      "ultimaConsulta": "2022-11-10T22:22:37.743Z"
+      "ultimaConsulta": "2024-04-24T19:41:40.779Z"
+    },
+    {
+      "id": "5",
+      "propiedades": {
+        "nombre": "Salon",
+        "modelo": "ESP32",
+        "decripcion": "Salon de cevydeci ",
+        "fecha": "2024-04-24",
+        "estado": "0",
+        "ubicacion": {
+          "latitud": "19.75843259499687",
+          "longitud": "-98.59484012808305",
+          "descripcion": "A"
+        },
+        "codigo": "TODO agregar codigo cpp"
+      },
+      "ultimaConsulta": "2024-04-24T21:38:58.504Z"
     }
   ],
   "rutas": [
@@ -77,9 +94,18 @@
         "fecha": "10/11/2022",
         "numeroPuntos": 3,
         "puntosLista": [
-          ["1", "IZQ"],
-          ["2", "IZQ"],
-          ["3", "DER"]
+          [
+            "1",
+            "IZQ"
+          ],
+          [
+            "2",
+            "IZQ"
+          ],
+          [
+            "3",
+            "DER"
+          ]
         ]
       }
     },
@@ -91,9 +117,48 @@
         "fecha": "10/11/2022",
         "numeroPuntos": 3,
         "puntosLista": [
-          ["1", "IZQ"],
-          ["2", "IZQ"],
-          ["4", "DER"]
+          [
+            "1",
+            "IZQ"
+          ],
+          [
+            "2",
+            "IZQ"
+          ],
+          [
+            "4",
+            "DER"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "propiedades": {
+        "nombre": "Test",
+        "descripcion": "A",
+        "fecha": "24/4/2024",
+        "numeroPuntos": 1,
+        "puntosLista": [
+          [
+            "5",
+            "FIN"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "propiedades": {
+        "nombre": "",
+        "descripcion": "",
+        "fecha": "24/4/2024",
+        "numeroPuntos": 1,
+        "puntosLista": [
+          [
+            "1",
+            "FIN"
+          ]
         ]
       }
     }
